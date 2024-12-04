@@ -33,20 +33,9 @@ export const assignment4Start = async () => {
     {
         for(let j=0;j<grid[i].length;j++)
         {
-            if(grid[i][j] === "A")
-            {
-                const permutationAS = buildPermutations(grid, i, j, "AS", true);
-                const permutationAM = buildPermutations(grid, i, j, "AM",true);
-
-                if(permutationAS.filter((item)=> item === "AS").length === 2 &&
-                    permutationAM.filter((item)=> item === "AM").length === 2)
-                {
-                    const masFind = buildMasPermutations(grid, i, j, "MAS");
-
-                    if(masFind.filter((item)=> item === "MAS").length === 2)
-                        masXCount++;
-                }
-            }
+            const masFind = buildMasPermutations(grid, i, j, "MAS");
+            if(masFind.filter((item)=> item === "MAS").length === 2)
+                masXCount++;
         }
     }
 
